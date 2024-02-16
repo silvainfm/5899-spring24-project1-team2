@@ -1,4 +1,4 @@
-# Project summary
+# Project Summary
 Great project, our portfolio is the best
 
 # Our Approach
