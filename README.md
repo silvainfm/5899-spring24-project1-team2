@@ -1,15 +1,20 @@
 # Project summary
 Great project, our portfolio is the best
 
-# Team's approach (on data collection, preprocessing, modeling, etc)
+# Our Approach
+## Data collection
 Data from excel, then used an API (or google finance or yahoo finance) to get SPY returns data
 
-# results of the sentiment classification model(s)
+## Preprocessing 
+
+## Modeling
+
+# Results of the Sentiment Classification Model(s)
 Awesome results obv
 
-# the portfolios constructed
+# Portfolio Constructed
 80/20 stocks and bonds split, classic!
 
-# instructions on running your model(s) and replicating your results
+# Instructions on running your model(s) and replicating your results
 
 # Running the model post-production
