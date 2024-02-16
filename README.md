@@ -3,7 +3,7 @@ Great project, our portfolio is the best
 
 # Our Approach
 ## Data collection
-Data from excel, then used an API (or google finance or yahoo finance) to get SPY returns data
+Data from excel, then used the yahoo finance API to get the stocks' returns data.
 
 ## Preprocessing 
 
@@ -14,6 +14,8 @@ Awesome results obv
 
 # Portfolio Constructed
 80/20 stocks and bonds split, classic!
+## Strategy 
+Have a take profit at 10%, and stop loss at 3.5% 
 
 # Instructions on running your model(s) and replicating your results
 
