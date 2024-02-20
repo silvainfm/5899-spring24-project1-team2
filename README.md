@@ -20,5 +20,22 @@ Before engaging ChatGPT for sentiment relabeling, we introduced a new column nam
 The AlphaLens package is designed to analyze sentiment scores alongside stock prices, presenting the optimal portfolio mix using its inherent long/short strategy. Despite our thorough validation confirming the alignment of 'factor' and 'price' dataframes' indices, we encountered a "TypeError: incompatible index of inserted column with frame index," indicating a misalignment. This led us to conclude that the discrepancy stemmed from an issue within the AlphaLens package itself. Consequently, we decided to bypass this problem by manually coding our strategy.
 
 ## Strategy 
-Buy when sentiment is positive and higher than 0.77 and sell when sentiment is negative and higher than 0.28. 
-Have a take profit at 10%, and stop loss at 2.5%
+We desinged a simple long/short strategy using our sentiment analysis. Proper risk management rules have also been added to our portfolio to ensure capital preservation. 
+Here are the rules we designed for our portfolio strategy:
+* A stop loss of 2.5% on each trade
+* A take profit of 10% on each trade
+* Long the stock when sentiment is positive and sentiment score is higher than 0.77
+* Short the stock when sentiment is negative and higher than 0.28.
+* A maximum holding period for each trade of 5 days
+
+We did try and play around with different combinations during backtesting, specifically for the stop loss and holding period, and these were the best metrics that yielded the best return. 
+Our mean return on a trade was 1.3% which significantly underperforms the SP500 and the risk free rate. 
+During backtesting we also observed some data errors in the stock data, which yielded extreme profit and losses. These wiped out our trading account even with the risk management rules put in place. 
+
+## Limitations & Future improvements
+The biggest limitation for our group was the alphalens package, and the integrity of the original dataset. 
+We struggled a lot with the package and it made backtesting impossible for us. 
+
+For future improvements, we would use other factors inlcuding the sentiment to make a decision of when to long/short a stock. This would allow for a longer holding period which could lead to higher returns. 
+We would also use news that does not come out during the trading day. 
+We might also implement options trading as a way to manage our downside risk a bit more, and amplify our returns. 
