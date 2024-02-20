@@ -15,6 +15,10 @@ Before engaging ChatGPT for sentiment relabeling, we introduced a new column nam
 ## BERT / FinBERT Model
 
 # Portfolio Constructed
+
+## AlphaLens Package
+The AlphaLens package is designed to analyze sentiment scores alongside stock prices, presenting the optimal portfolio mix using its inherent long/short strategy. Despite our thorough validation confirming the alignment of 'factor' and 'price' dataframes' indices, we encountered a "TypeError: incompatible index of inserted column with frame index," indicating a misalignment. This led us to conclude that the discrepancy stemmed from an issue within the AlphaLens package itself. Consequently, we decided to bypass this problem by manually coding our strategy.
+
 ## Strategy 
 Buy when sentiment is positive and higher than 0.77 and sell when sentiment is negative and higher than 0.28. 
 Have a take profit at 10%, and stop loss at 2.5%
