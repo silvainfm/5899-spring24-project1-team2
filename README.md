@@ -9,14 +9,14 @@ Before engaging ChatGPT for sentiment relabeling, we introduced a new column nam
 
 # Modeling Results
 ## GPT Model
-* **Purpose:** We used GPT-3.5 to analyze the sentiment of text data and classified the data as positive, negative, or neutral.
+* **Purpose:** Used GPT-3.5 to analyze the sentiment of text data and classified the data as positive, negative, or neutral.
 * **Data Handling:** Split the data into two sets: 80% for training and 20% for testing.
 * **Sentiment Analysis Function:** The text was sent to GPT-3.5 to perform sentiment analysis (positive, negative, or neutral).
-* **Evaluating Accuracy:** We compared GPT-3.5’s sentiment predictions with the actual labels from the dataset. It calculated the accuracy of the model, which reflects how often GPT-3.5’s predictions were correct.
+* **Evaluating Accuracy:** Compared GPT-3.5’s sentiment predictions with the actual labels from the dataset. It calculated the accuracy of the model, which reflects how often GPT-3.5’s predictions were correct.
 * **Results:** When compared with the sentiment provided in the data set, the model provided an accuracy of 37%.
 
 ## RNN Model
-* **Preprocessing:** We transformed categorical sentiment labels into numerical values using LabelEncoder, tokenized the summary with a maximum limit of 5000 words, and then converted the tokenized texts into sequences, padding them to achieve a uniform length.
+* **Preprocessing:** Transformed categorical sentiment labels into numerical values using LabelEncoder, tokenized the summary with a maximum limit of 5000 words, and then converted the tokenized texts into sequences, padding them to achieve a uniform length.
 * **Model:** A sequential RNN model was built using Keras which includes an embedding layer, an LSTM layer with dropout and recurrent dropout for regularization, and a dense output layer with softmax activation. L2 regularization was used in the LSTM layer to prevent overfitting.
 * **K-Fold Cross-Validation:** Employed the use of 5-fold cross-validation for training to improve the robustness of the model. In each fold, the model was compiled, trained, and evaluated.
 * **Training:** The model underwent training using a batch size of 32 for a duration of 10 epochs, during which the training loss and accuracy were monitored.
