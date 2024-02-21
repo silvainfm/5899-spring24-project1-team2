@@ -48,9 +48,9 @@ Rules we designed for our portfolio strategy:
 * Short the stock when sentiment is negative and higher than 0.28.
 * A maximum holding period for each trade of 5 days
 
-We did try and play around with different combinations during backtesting, specifically for the stop loss and holding period, and these were the best metrics that yielded the best return. Our mean return on a trade was 1.3% which significantly underperforms the SP500 and the risk-free rate. During backtesting, we also observed some data errors in the stock data, which yielded extreme profit and losses. These wiped out our trading account even with the risk management rules put in place. 
+We did try and play around with different combinations during backtesting, specifically for the stop loss and holding period, and these were the best metrics that yielded the best return. Our mean return on a trade was 1.3% which significantly underperforms the SP500 and the risk-free rate. During backtesting, we also observed some data errors in the stock data from the Yahoo Finance API, which yielded extreme profits and losses. These wiped out our trading account even with the risk management rules put in place. 
 
 ## Limitations & Future improvements
-The biggest limitation for our group was the AlphaLens package and the integrity of the original dataset. We struggled with the package and it made backtesting more probable than it should have been. 
+The biggest limitation for our group was the AlphaLens package and the integrity of the original dataset. We struggled with the package and it made backtesting more complicated than it should have been. 
 
 For future improvements, we would use other factors including the sentiment to decide on when to long/short a stock. This would allow for a longer holding period which could lead to higher returns. We would also use news that does not come out during the trading day. We could also implement options trading as a way to manage our downside risk a bit more and amplify our returns. 
