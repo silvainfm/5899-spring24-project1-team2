@@ -16,10 +16,10 @@ Before engaging ChatGPT for sentiment relabeling, we introduced a new column nam
 * **Results:** When compared with the sentiment provided in the data set, the model provided an accuracy of 37%.
 
 ## RNN Model
-* **Preprocessing:** We converted categorical sentiment labels to numerical values using LabelEncoder, tokenized the summary, limiting it to a maximum of 5000 words, and converted the tokenized texts into sequences and padded them to a uniform length.
-* **Model:** A Sequential RNN model was built using Keras which includes an Embedding layer, an LSTM layer with dropout and recurrent dropout for regularization, and a Dense output layer with softmax activation. L2 regularization was used in the LSTM layer to prevent overfitting.
+* **Preprocessing:** We transformed categorical sentiment labels into numerical values using LabelEncoder, tokenized the summary with a maximum limit of 5000 words, and then converted the tokenized texts into sequences, padding them to achieve a uniform length.
+* **Model:** A sequential RNN model was built using Keras which includes an embedding layer, an LSTM layer with dropout and recurrent dropout for regularization, and a dense output layer with softmax activation. L2 regularization was used in the LSTM layer to prevent overfitting.
 * **K-Fold Cross-Validation:** Employed the use of 5-fold cross-validation for training to improve the robustness of the model. In each fold, the model was compiled, trained, and evaluated.
-* **Training:** The model was trained with a batch size of 32 and for 10 epochs and the training loss and accuracy were tracked.
+* **Training:** The model underwent training using a batch size of 32 for a duration of 10 epochs, during which the training loss and accuracy were monitored.
 * **Evaluation:** After training, the model was evaluated on the separate testing dataset.
 * **Results:** The final accuracy of the model was 68.32%
 
