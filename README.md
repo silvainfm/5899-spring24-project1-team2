@@ -14,6 +14,40 @@ Before engaging ChatGPT for sentiment relabeling, we introduced a new column nam
 
 ## BERT / FinBERT Model
 
+### BERT
+**BEFORE** We realized human labeled sentiment is not for this project, I used this as the target for finetuning.
+
+* **Sentiment Distribution**: The dataset comprises 1801 negative, 948 neutral, and 836 positive articles, which is not balanced
+
+* **Dataset Split**: Allocated 80% for training and 20% for testing.
+
+* **Model Choice**: Utilized BERT for sequence classification, targeting 3 sentiment classes.
+
+* **Full Model Fine-Tuning**: Engaged all 109,484,547 parameters over 3 epochs, achieving a 39% accuracy. It took about an hour on my laptop (M1 Pro).
+
+* **Selective Fine-Tuning**: I froze all the layers before the head, only fine tuned the last layer, involving 2,307 parameters across 100 epochs, resulting in a 49% accuracy. which took 3 hours
+
+
+But, the accuracy remained stuck at 49% after the first 50 epochs of training.
+
+
+The potential reasons for low accuracy:
+* **Token Length Limitation**: BERT-Base, Uncased supports up to 512 tokens, whereas the average article length in the dataset is 3,379 words, which means most articles were truncated before pass to the model.
+* **Data Quality Concerns**: The training dataset may lack high quality, impacting model performance.
+
+
+### FinBERT
+* **Data Preparation**: Utilized 4 months of data from 2022 for fine-tuning and all 2023 data for predictions.
+* **Sentiment Ground Truth**: Employed ChatGPT-generated sentiment as the ground truth for fine-tuning.
+* **Model Selection**: Chose FinBERT (ProsusAI/finbert) for sentiment analysis, focusing on three classes.
+* **Initial Fine-Tuning**: Targeted the classifier layer with 2,307 parameters over 10 epochs, achieving 72% accuracy.
+* **Advanced Fine-Tuning**: Expanded to fine-tune both pooler and classifier layers, totaling 592,899 parameters over 10 epochs, maintaining 72% accuracy.
+
+The potential reasons for a much higher accuracy:
+
+* **Choice of Target**: I chose summaries instead of articles as text in finetuning. Since most of the summaries fell within FinBERT's maximum token length.
+* **Pre-trained Advantage**: FinBERT model has already finetuned on an extensive financial corpus.
+
 # Portfolio Constructed
 
 ## AlphaLens Package
