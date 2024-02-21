@@ -12,13 +12,17 @@ Before engaging ChatGPT for sentiment relabeling, we introduced a new column nam
 **Purpose:**
 * Used the GPT-3.5 to analyze the sentiment of text data.
 * Classified the data as positive, negative, or neutral.
+  
 **Data Handling:**
 * Split the data into two sets: 80% for training and 20% for testing.
+  
 **Sentiment Analysis Function:**
 * The text was sent to GPT-3.5 to perform sentiment analysis (positive, negative, or neutral).
+
 **Evaluating Accuracy:**
 * Compared GPT-3.5’s sentiment predictions with the actual labels from the dataset.
 * It calculated the accuracy of the model, which reflects how often GPT-3.5’s predictions were correct.
+
 **Results:**
 * When compared with the sentiment provided in the data set, the model provided an accuracy of 37%
 
@@ -27,16 +31,21 @@ Before engaging ChatGPT for sentiment relabeling, we introduced a new column nam
 * Converted categorical sentiment labels to numerical values using LabelEncoder.
 * Tokenized the summary, limiting to a maximum of 5000 words.
 * Converted the tokenized texts into sequences and padded them to a uniform length.
+
 **Model:**
 * A Sequential RNN model was built using Keras which includes an Embedding layer, an LSTM layer with dropout and recurrent dropout for regularization, and a Dense output layer with softmax activation.
 * L2 regularization was used in the LSTM layer to prevent overfitting.
+
 **K-Fold Cross-Validation:**
 * Used 5-fold cross-validation for training, improving the robustness of the model.
 * In each fold, the model was compiled, trained, and evaluated.
+
 **Training:**
 * The model was trained with a batch size of 32 and for 10 epochs and the training loss and accuracy were tracked.
+
 **Evaluation:**
 * After training, the model was evaluated on a separate testing dataset.
+
 **Results:**
 * The final accuracy of the model is 68.32%
 
