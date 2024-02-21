@@ -3,25 +3,25 @@ We aimed to construct a long/short portfolio by leveraging sentiment analysis fr
 
 # Our Approach
 ## Data collection / PreProcessing
-Due to time constraints and the original dataset's focus on ESG, we opted to reevaluate sentiments using ChatGPT. We supplied ChatGPT with the article summary, description, ticker, and adjusted date, and it classified each article as positive, negative, or neutral. This relabeling process was applied to the entire dataset. Additionally, we integrated this newly generated sentiment data with stock information obtained from the Yahoo Finance API.
+Due to time constraints and the original dataset's focus on ESG, we opted to reevaluate sentiments using ChatGPT. We supplied ChatGPT with the article summary, description, ticker, and adjusted date, and it classified each article as positive, negative, or neutral. This relabeling process was applied to the entire dataset and was used as the ground truth. Additionally, we integrated this newly generated sentiment data with stock information obtained from the Yahoo Finance API.
 
 Before engaging ChatGPT for sentiment relabeling, we introduced a new column named "adjusted date." This column accommodates articles published after 4 pm EST, considering that the stock market closes then. If an article was published after 4 pm EST, the adjusted date reflects the following day; otherwise, it remains unchanged for articles published before 4 pm. To be consistent when running our models we allocated all 2022 data for training and all 2023 data for testing.
 
 # Modeling Results
 ## GPT Model
-* **Purpose:** Used GPT-3.5 to analyze the sentiment of text data and classified the data as positive, negative, or neutral.
-* **Data Handling:** Split the data into two sets: 80% for training and 20% for testing.
-* **Sentiment Analysis Function:** The text was sent to GPT-3.5 to perform sentiment analysis (positive, negative, or neutral).
-* **Evaluating Accuracy:** Compared GPT-3.5’s sentiment predictions with the actual labels from the dataset. It calculated the accuracy of the model, which reflects how often GPT-3.5’s predictions were correct.
-* **Results:** When compared with the sentiment provided in the data set, the model provided an accuracy of 37%.
+* **Objective:** Employed GPT-3.5 to assess the sentiment of textual data, categorizing it into positive, negative, or neutral.
+* **Data Partitioning:** Segregated the data into two subsets: 80% for training purposes and 20% for testing.
+* **Sentiment Analysis Function:** Utilized GPT-3.5 to conduct sentiment analysis on the text, identifying whether it is positive, negative, or neutral.
+* **Evaluating Accuracy:** Cross-referenced GPT-3.5's sentiment predictions with the actual labels in the dataset. Computed the model's accuracy, reflecting the frequency of correct predictions by GPT-3.5.
+* **Results:** Upon comparison with the sentiment annotations in the dataset, the model achieved an accuracy rate of 37%.
 
 ## RNN Model
-* **Preprocessing:** Transformed categorical sentiment labels into numerical values using LabelEncoder, tokenized the summary with a maximum limit of 5000 words, and then converted the tokenized texts into sequences, padding them to achieve a uniform length.
-* **Model:** A sequential RNN model was built using Keras which includes an embedding layer, an LSTM layer with dropout and recurrent dropout for regularization, and a dense output layer with softmax activation. L2 regularization was used in the LSTM layer to prevent overfitting.
-* **K-Fold Cross-Validation:** Employed the use of 5-fold cross-validation for training to improve the robustness of the model. In each fold, the model was compiled, trained, and evaluated.
+* ** Preprocessing:** Transformed categorical sentiment labels into numerical values using LabelEncoder. Tokenized the summary with a maximum limit of 5000 words and then converted the tokenized texts into sequences, padding them to achieve a uniform length.
+* **Model:** A sequential RNN model was built using Keras. Included an embedding layer, an LSTM layer with dropout and recurrent dropout for regularization, and a dense output layer with softmax activation. Applied L2 regularization in the LSTM layer to prevent overfitting.
+* **K-Fold Cross-Validation:** Utilized 5-fold cross-validation for training to improve the robustness of the model. In each fold, the model was compiled, trained, and evaluated.
 * **Training:** The model underwent training using a batch size of 32 for a duration of 10 epochs, during which the training loss and accuracy were monitored.
-* **Evaluation:** After training, the model was evaluated on the separate testing dataset.
-* **Results:** The final accuracy of the model was 68.32%
+* **Evaluation:** Assessed the model's performance on a separate testing dataset after training.
+* **Results:** Achieved a final accuracy of 68.32%.
 
 ## BERT
 * **Sentiment Distribution**: The dataset comprises 1801 negative, 948 neutral, and 836 positive articles, which is not balanced.
